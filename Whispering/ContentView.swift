@@ -93,7 +93,9 @@ struct ContentView: View {
 class TranscriptionService: ObservableObject {
   private var whisperKit: WhisperKit?
   private var audioRecorder: AVAudioRecorder?
+  #if os(iOS)
   private var recordingSession: AVAudioSession?
+  #endif
   private var recordingURL: URL?
   
   init() {
@@ -101,6 +103,7 @@ class TranscriptionService: ObservableObject {
   }
   
   private func setupAudioSession() {
+    #if os(iOS)
     recordingSession = AVAudioSession.sharedInstance()
     do {
       try recordingSession?.setCategory(.playAndRecord, mode: .default)
@@ -108,6 +111,7 @@ class TranscriptionService: ObservableObject {
     } catch {
       print("Failed to set up recording session: \(error)")
     }
+    #endif
   }
   
   func setup() async {
@@ -123,14 +127,27 @@ class TranscriptionService: ObservableObject {
     let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.wav")
     recordingURL = audioFilename
     
-    let settings = [
+    let settings: [String: Any] = [
       AVFormatIDKey: Int(kAudioFormatLinearPCM),
       AVSampleRateKey: 16000,
       AVNumberOfChannelsKey: 1,
-      AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+      AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue,
+      AVLinearPCMBitDepthKey: 16,
+      AVLinearPCMIsFloatKey: false,
+      AVLinearPCMIsBigEndianKey: false
     ]
     
     do {
+      #if os(macOS)
+      // Request microphone access on macOS
+      if let accessGranted = try? await AVCaptureDevice.requestAccess(for: .audio) {
+        guard accessGranted else {
+          print("Microphone access denied")
+          return
+        }
+      }
+      #endif
+      
       audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
       audioRecorder?.record()
     } catch {
