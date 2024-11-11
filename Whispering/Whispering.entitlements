@@ -16,5 +16,11 @@
 	<array>
 		<string>com.apple.systempreferences</string>
 	</array>
+	<key>com.apple.security.temporary-exception.mach-register.global-name</key>
+	<array>
+		<string>com.apple.coreservices.launchservicesd</string>
+	</array>
+	<key>com.apple.security.temporary-exception.input-monitoring</key>
+	<true/>
 </dict>
 </plist>

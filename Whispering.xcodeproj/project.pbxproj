@@ -14,9 +14,22 @@
 		0ADDF2952CE0C3BF008793AC /* Whispering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whispering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0A2688592CE245FA002F6C0D /* Exceptions for "Whispering" folder in "Whispering" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0ADDF2942CE0C3BF008793AC /* Whispering */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0ADDF2972CE0C3BF008793AC /* Whispering */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0A2688592CE245FA002F6C0D /* Exceptions for "Whispering" folder in "Whispering" target */,
+			);
 			path = Whispering;
 			sourceTree = "<group>";
 		};
@@ -266,6 +279,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Whispering/Info.plist;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Whispering needs accessibility access to listen for the F5 key to start/stop recording.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to record audio for transcription";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -280,7 +294,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rudrankriyam.Whispering;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudrankriyam.whispering;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
@@ -308,6 +322,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Whispering/Info.plist;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Whispering needs accessibility access to listen for the F5 key to start/stop recording.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to record audio for transcription";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -322,7 +337,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rudrankriyam.Whispering;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudrankriyam.whispering;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
