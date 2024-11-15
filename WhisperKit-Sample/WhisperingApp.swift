@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct WhisperingApp: App {
+struct WhisperKitSampleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

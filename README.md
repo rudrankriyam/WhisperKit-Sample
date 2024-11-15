@@ -1,4 +1,4 @@
-# Whispering Sample Project
+# WhisperKit Sample
 
 This is a sample SwiftUI project showing how to use [**WhisperKit**](https://github.com/argmaxinc/WhisperKit) to transcribe audio across Apple platforms. The app has audio recording and transcription, using WhisperKit and AVFoundation. 
 
@@ -28,4 +28,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-Enjoy using Whispering! If you have questions or feedback, feel free to reach out to me on [X @rudrankriyam](https://x.com/rudrankriyam)!
+Enjoy using WhisperKit-Sample! If you have questions or feedback, feel free to reach out to me on [X @rudrankriyam](https://x.com/rudrankriyam)!

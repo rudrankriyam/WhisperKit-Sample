@@ -1,7 +1,6 @@
 import SwiftUI
 import WhisperKit
 import AVFoundation
-import AppKit
 
 class TranscriptionService: ObservableObject {
   // MARK: - Published Properties
@@ -16,8 +15,7 @@ class TranscriptionService: ObservableObject {
   private var audioRecorder: AVAudioRecorder?
   private var keyboardMonitor: Any?
   private var recordingURL: URL?
-  private let inputMonitoring = InputMonitoringPermission.shared
-  
+
   #if os(iOS)
   private var recordingSession: AVAudioSession?
   #endif
@@ -117,7 +115,7 @@ class TranscriptionService: ObservableObject {
         if let recordingURL = await stopRecording() {
           print("🔤 Starting transcription...")
           do {
-            transcriptionResult = await transcribe(audio: recordingURL)
+            transcriptionResult = try await transcribe(audio: recordingURL)
             print("✅ Transcription completed: \(transcriptionResult)")
             pasteTranscribedText(transcriptionResult)
           } catch {
@@ -176,9 +174,8 @@ class TranscriptionService: ObservableObject {
   }
   
   // MARK: - Transcription
-  func transcribe(audio url: URL) async -> String {
+  func transcribe(audio url: URL) async throws -> String {
     print("🎯 Transcribing audio from: \(url.path)")
-    do {
       if whisperKit == nil {
         print("🔄 Initializing WhisperKit...")
         whisperKit = try await WhisperKit(model: "base")
@@ -188,10 +185,6 @@ class TranscriptionService: ObservableObject {
       let result = try await whisperKit?.transcribe(audioPath: url.path)
       print("✅ Transcription successful")
       return result?.map { $0.text }.joined(separator: " ") ?? "No transcription"
-    } catch {
-      print("❌ Transcription error: \(error)")
-      return "Error: \(error.localizedDescription)"
-    }
   }
   
   // MARK: - Paste Handling
