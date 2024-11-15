@@ -1,6 +1,6 @@
-# Whispering
+# Whispering Sample Project
 
-Whispering is a sample SwiftUI project showing how to use [**WhisperKit**](https://github.com/argmaxinc/WhisperKit) to transcribe audio across Apple platforms. The app has audio recording and transcription, using WhisperKit and AVFoundation. 
+This is a sample SwiftUI project showing how to use [**WhisperKit**](https://github.com/argmaxinc/WhisperKit) to transcribe audio across Apple platforms. The app has audio recording and transcription, using WhisperKit and AVFoundation. 
 
 ## Features
 
