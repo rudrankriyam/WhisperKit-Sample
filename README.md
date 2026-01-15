@@ -1,4 +1,6 @@
 # WhisperKit Sample
+[![Star History Chart](https://api.star-history.com/svg?repos=rudrankriyam/WhisperKit-Sample&type=Date)](https://star-history.com/#rudrankriyam/WhisperKit-Sample&Date)
+
 
 This is a sample SwiftUI project showing how to use [**WhisperKit**](https://github.com/argmaxinc/WhisperKit) to transcribe audio across Apple platforms. The app has audio recording and transcription, using WhisperKit and AVFoundation. 
 
